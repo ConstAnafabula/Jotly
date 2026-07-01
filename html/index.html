@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jotly — Dashboard</title>
+<link rel="stylesheet" href="/css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ── Navigation ────────────────────────────────────────── -->
+<nav class="nav" aria-label="Main navigation">
+  <div class="nav-inner">
+
+    <a href="/" class="logo" aria-label="Jotly home">
+      <div class="logo-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 20h9"/>
+          <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4 12.5-12.5z"/>
+        </svg>
+      </div>
+      <span class="logo-name">Jotly</span>
+    </a>
+
+    <div class="nav-right">
+      <a href="/" class="nav-pill active">Dashboard</a>
+      <a href="/notes" class="nav-pill">My Notes</a>
+      <a href="#" class="nav-pill">Favourites</a>
+      <a href="#" class="nav-pill">Archive</a>
+      <div class="nav-avatar" aria-label="Account: Alex Reid">AR</div>
+    </div>
+
+  </div>
+</nav>
+
+<!-- ── Page ──────────────────────────────────────────────── -->
+<main class="page">
+
+  <!-- Welcome + CTA -->
+  <div class="welcome">
+    <div class="welcome-text">
+      <p class="welcome-date" id="welcome-date"></p>
+      <h1 class="welcome-heading" id="welcome-heading"></h1>
+      <p class="welcome-sub" id="welcome-sub"></p>
+    </div>
+    <a href="#" class="create-btn" aria-label="Create a new note">
+      <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      Create new note
+    </a>
+  </div>
+
+  <!-- Stats -->
+  <section aria-label="Key statistics">
+    <div class="stats">
+
+      <!-- Total Notes -->
+      <div class="stat">
+        <div class="stat-stripe stat-stripe-violet" aria-hidden="true"></div>
+        <div class="stat-top">
+          <div class="stat-badge badge-violet" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
+          <span class="stat-delta" id="monthNotes"></span>
+        </div>
+        <div>
+          <div class="stat-label">Total Notes</div>
+          <div class="stat-value" id="totalValue"></div>
+        </div>
+        <div class="stat-foot" id="mostTag"></div>
+      </div>
+
+      <!-- Created Today -->
+      <div class="stat">
+        <div class="stat-stripe stat-stripe-emerald" aria-hidden="true"></div>
+        <div class="stat-top">
+          <div class="stat-badge badge-emerald" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+          </div>
+          <span class="stat-delta" id="vsYesterday"></span>
+        </div>
+        <div>
+          <div class="stat-label">Notes Created Today</div>
+          <div class="stat-value" id="todayValue"></div>
+        </div>
+        <div class="stat-foot" id="todayLastCreated"></div>
+      </div>
+
+      <!-- Recently Updated -->
+      <div class="stat">
+        <div class="stat-stripe stat-stripe-sky" aria-hidden="true"></div>
+        <div class="stat-top">
+          <div class="stat-badge badge-sky" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <polyline points="23 4 23 10 17 10"/>
+              <path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/>
+            </svg>
+          </div>
+          <span class="stat-delta delta-neutral">Past 7 days</span>
+        </div>
+        <div>
+          <div class="stat-label">Recently Updated</div>
+          <div class="stat-value" id="updatedValue"></div>
+        </div>
+        <div class="stat-foot" id="lastEdited"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Recent Notes -->
+  <section aria-labelledby="recent-notes-heading">
+    <div class="section-hd">
+      <h2 class="section-title" id="recent-notes-heading">Recent Notes</h2>
+      <a href="/notes" class="section-link">View all notes →</a>
+    </div>
+
+    <div class="notes-grid" role="list">
+
+    </div>
+  </section>
+
+</main>
+<script src="/script/api.js"></script>
+<script src="/script/dashboard.js"></script>
+</body>
+</html>
