@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>My Notes — Jotly</title>
+<link rel="stylesheet" href="/css/notes.css">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ── Navigation ────────────────────────────────────────── -->
+<nav class="nav" aria-label="Main navigation">
+  <div class="nav-inner">
+
+    <a href="/" class="logo" aria-label="Jotly home">
+      <div class="logo-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 20h9"/>
+          <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4 12.5-12.5z"/>
+        </svg>
+      </div>
+      <span class="logo-name">Jotly</span>
+    </a>
+
+    <div class="nav-right">
+      <a href="/" class="nav-pill">Dashboard</a>
+      <a href="#" class="nav-pill active">My Notes</a>
+      <a href="#" class="nav-pill">Favourites</a>
+      <a href="#" class="nav-pill">Archive</a>
+      <div class="nav-avatar" aria-label="Account: Alex Reid">AR</div>
+    </div>
+
+  </div>
+</nav>
+
+<!-- ── Page ──────────────────────────────────────────────── -->
+<main class="page">
+
+  <!-- Welcome + CTA -->
+  <div class="welcome">
+    <div class="welcome-text">
+      <p class="welcome-date" id="welcome-date">All Notes</p>
+      <h1 class="welcome-heading" id="welcome-heading">My <em>Notes</em></h1>
+      <p class="welcome-sub" id="welcome-sub">View, search, and manage your personal notes.</p>
+    </div>
+    <a href="#" class="create-btn" id="new-note-btn" aria-label="Create a new note">
+      <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      New Note
+    </a>
+  </div>
+
+  <!-- Toolbar: search + filters -->
+  <section class="toolbar" aria-label="Search and filter notes">
+
+    <label class="search-bar" for="note-search">
+      <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"/>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="search" id="note-search" name="note-search" class="search-input" placeholder="Search notes..." />
+    </label>
+
+    <div class="select-wrap">
+      <label for="filter-tag" class="sr-only">Filter by tag</label>
+      <select id="filter-tag" class="select-control">
+        <option value="all">All Tags</option>
+      </select>
+      <svg class="select-caret" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+
+    <div class="select-wrap">
+      <label for="sort-notes" class="sr-only">Sort notes</label>
+      <select id="sort-notes" class="select-control">
+        <option value="newest">Newest First</option>
+        <option value="oldest">Oldest First</option>
+        <option value="updated">Recently Updated</option>
+        <option value="alphabetical">Alphabetical</option>
+      </select>
+      <svg class="select-caret" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+
+  </section>
+
+  <!-- Section header -->
+  <div class="section-hd">
+    <h2 class="section-title" id="all-notes-heading">All Notes</h2>
+    <span class="section-link" id="notes-count"></span>
+  </div>
+
+  <!-- Notes grid -->
+  <section aria-labelledby="all-notes-heading">
+
+    <div class="notes-grid" id="notes-grid" role="list">
+
+    </div>
+
+    <!-- Empty state, hidden by default — toggle with .is-visible -->
+    <div class="empty-state" id="empty-state">
+      <div class="empty-state-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+        </svg>
+      </div>
+      <h2 class="empty-state-title">No notes yet</h2>
+      <p class="empty-state-text" id="empty-state-text"></p>
+      <a href="#" class="create-btn" id="empty-state-btn">
+        <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Create Note
+      </a>
+    </div>
+
+  </section>
+
+</main>
+<script src="/script/api.js"></script>
+<script src="/script/notes.js"></script>
+</body>
+</html>
