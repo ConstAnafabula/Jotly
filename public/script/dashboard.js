@@ -58,7 +58,8 @@ function displayTotals(totals) {
 function displayNotes(notes) {
     const created = createdDateToString(notes)
     const updated = updatedDateToString(notes)
-    const note = notes.map(n => {
+    
+    const note = notes.map((n, index) => {
         return`
         <article class="note-card" role="listitem">
             <div class="note-card-accent nc-${n.tag}" aria-hidden="true"></div>
@@ -71,12 +72,12 @@ function displayNotes(notes) {
                 <div class="note-meta-row">
                     <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                     <span class="meta-key">Created at</span>
-                    <span class="meta-val">${created[n.id - 1]}</span>
+                    <span class="meta-val">${created[index]}</span>
                 </div>
                 <div class="note-meta-row">
                     <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                     <span class="meta-key">Updated at</span>
-                    <span class="meta-val">${updated[n.id -1]}</span>
+                    <span class="meta-val">${updated[index]}</span>
                 </div>
             </footer>
         </article>
@@ -95,12 +96,12 @@ function giveClassDelta(notes) {
 }
 function compareTodayAndYesterday(today, yesterday) {
     if (Number(today) > Number(yesterday)) {
-        const result = Number(yesterday) - Number(today)
+        const result = Number(today) - Number(yesterday)
         vsYesterday.classList.remove('delta-down', 'delta-inactive', 'delta-stable')
         vsYesterday.classList.add('delta-up')
         vsYesterday.textContent = `↑ ${result} vs yesterday`
     } else if (Number(today) < Number(yesterday)) {
-        const result = Number(today) - Number(yesterday)
+        const result = Number(yesterday) - Number(today)
         vsYesterday.classList.remove('delta-up', 'delta-inactive', 'delta-stable')
         vsYesterday.classList.add('delta-down')
         vsYesterday.textContent = `↓ ${result} vs yesterday`
