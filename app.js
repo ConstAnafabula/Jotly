@@ -5,18 +5,19 @@ const PORT = process.env.PORT || 3000
 const path = require('path')
 const notesRouter = require('./router/notes')
 
-app.use('/notes', notesRouter)
 app.use(express.json())
 app.use(express.static('public'))
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.url}`);
     next()
 })
+app.use('/notes', notesRouter)
+
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/html/index.html')
 })
 app.get('/api', (req, res) => {
-    const getNotesQuery = 'SELECT * FROM notes LIMIT 10'
+    const getNotesQuery = 'SELECT * FROM notes WHERE is_draft = 0 ORDER BY created_at DESC LIMIT 10'
     const getTotalQuery = `SELECT 
                         COUNT(*) AS totalNotes, 
                         SUM(CASE WHEN DATE(created_at) = DATE('now') THEN 1 ELSE 0 END) AS notesToday, 
