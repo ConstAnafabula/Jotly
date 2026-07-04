@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>New Note — Jotly</title>
+<link rel="stylesheet" href="/css/create.css">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ── Navigation ────────────────────────────────────────── -->
+<nav class="nav" aria-label="Main navigation">
+  <div class="nav-inner">
+
+    <a href="/" class="logo" aria-label="Jotly home">
+      <div class="logo-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 20h9"/>
+          <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4 12.5-12.5z"/>
+        </svg>
+      </div>
+      <span class="logo-name">Jotly</span>
+    </a>
+
+    <div class="nav-right">
+      <a href="/" class="nav-pill">Dashboard</a>
+      <a href="/notes" class="nav-pill active">My Notes</a>
+      <a href="#" class="nav-pill">Favourites</a>
+      <a href="#" class="nav-pill">Archive</a>
+      <div class="nav-avatar" aria-label="Account: Alex Reid">AR</div>
+    </div>
+
+  </div>
+</nav>
+
+<!-- ── Page ──────────────────────────────────────────────── -->
+<main class="page">
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/notes" class="bc-link">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+      My Notes
+    </a>
+    <span class="bc-sep" aria-hidden="true">/</span>
+    <span class="bc-current">New Note</span>
+  </nav>
+
+  <!-- Page heading -->
+  <div class="welcome" style="margin-bottom: 1.75rem;">
+    <div class="welcome-text">
+      <p class="welcome-date">Create</p>
+      <h1 class="welcome-heading">New <em>Note</em></h1>
+      <p class="welcome-sub">Start writing — your note is saved automatically.</p>
+    </div>
+  </div>
+
+  <!-- Editor layout -->
+  <div class="editor-layout">
+
+    <!-- ── Main editor ────────────────────────────────────── -->
+    <div class="editor-main">
+
+      <!-- Title input -->
+      <div class="title-card">
+        <div class="title-accent-bar" id="title-accent" aria-hidden="true"></div>
+        <input
+          type="text"
+          id="note-title"
+          class="note-title-input"
+          placeholder="Note title…"
+          aria-label="Note title"
+          maxlength="120"
+          autocomplete="off"
+        />
+        <div class="title-meta">
+          <span class="char-count" id="char-count">0 / 120</span>
+        </div>
+      </div>
+
+      <!-- Formatting toolbar -->
+      <div class="format-toolbar" role="toolbar" aria-label="Formatting options">
+        <div class="format-group">
+          <button class="tool-btn" title="Bold (⌘B)" aria-label="Bold">
+            <svg viewBox="0 0 24 24"><path d="M6 4h8a4 4 0 014 4 4 4 0 01-4 4H6z"/><path d="M6 12h9a4 4 0 014 4 4 4 0 01-4 4H6z"/></svg>
+          </button>
+          <button class="tool-btn" title="Italic (⌘I)" aria-label="Italic">
+            <svg viewBox="0 0 24 24"><line x1="19" y1="4" x2="10" y2="4"/><line x1="14" y1="20" x2="5" y2="20"/><line x1="15" y1="4" x2="9" y2="20"/></svg>
+          </button>
+          <button class="tool-btn" title="Underline (⌘U)" aria-label="Underline">
+            <svg viewBox="0 0 24 24"><path d="M6 3v7a6 6 0 006 6 6 6 0 006-6V3"/><line x1="4" y1="21" x2="20" y2="21"/></svg>
+          </button>
+          <button class="tool-btn" title="Strikethrough" aria-label="Strikethrough">
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><path d="M16 6C16 6 14.5 4 12 4s-5 1.5-5 4c0 2 1.5 3 3 3.5"/><path d="M8 18c0 0 1.5 2 4 2s5-1.5 5-4c0-1.7-1-2.8-2.5-3.5"/></svg>
+          </button>
+        </div>
+        <div class="tool-sep" aria-hidden="true"></div>
+        <div class="format-group">
+          <button class="tool-btn" title="Heading 1" aria-label="Heading 1">
+            <svg viewBox="0 0 24 24"><path d="M4 6v12"/><path d="M12 6v12"/><path d="M4 12h8"/><path d="M17 11l2-2v8"/></svg>
+          </button>
+          <button class="tool-btn" title="Heading 2" aria-label="Heading 2">
+            <svg viewBox="0 0 24 24"><path d="M4 6v12"/><path d="M12 6v12"/><path d="M4 12h8"/><path d="M16 13c0-1.1.9-2 2-2s2 .9 2 2c0 1-1 2-2 3l-2 2h4"/></svg>
+          </button>
+        </div>
+        <div class="tool-sep" aria-hidden="true"></div>
+        <div class="format-group">
+          <button class="tool-btn" title="Bullet list" aria-label="Bullet list">
+            <svg viewBox="0 0 24 24"><line x1="9" y1="6" x2="20" y2="6"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="18" x2="20" y2="18"/><circle cx="4" cy="6" r="1" fill="currentColor"/><circle cx="4" cy="12" r="1" fill="currentColor"/><circle cx="4" cy="18" r="1" fill="currentColor"/></svg>
+          </button>
+          <button class="tool-btn" title="Numbered list" aria-label="Numbered list">
+            <svg viewBox="0 0 24 24"><line x1="10" y1="6" x2="21" y2="6"/><line x1="10" y1="12" x2="21" y2="12"/><line x1="10" y1="18" x2="21" y2="18"/><path d="M4 6h1v4"/><path d="M4 10h2"/><path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+          </button>
+          <button class="tool-btn" title="Checklist" aria-label="Checklist">
+            <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          </button>
+          <button class="tool-btn" title="Blockquote" aria-label="Blockquote">
+            <svg viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+          </button>
+        </div>
+        <div class="tool-sep" aria-hidden="true"></div>
+        <div class="format-group">
+          <button class="tool-btn" title="Insert link" aria-label="Insert link">
+            <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+          </button>
+          <button class="tool-btn" title="Insert code" aria-label="Insert code">
+            <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </button>
+        </div>
+        <div class="format-group format-group--right">
+          <span class="word-count" id="word-count">0 words</span>
+        </div>
+      </div>
+
+      <!-- Body textarea -->
+      <div class="body-card" id="body-card">
+        <textarea
+          id="note-body"
+          class="note-body-input input-error"
+          placeholder="Start writing your note…"
+          aria-label="Note content"
+          spellcheck="true"
+        ></textarea>
+      </div>
+
+    </div>
+
+    <!-- ── Sidebar ─────────────────────────────────────────── -->
+    <aside class="editor-sidebar" aria-label="Note settings">
+
+      <!-- Tag picker -->
+      <div class="sidebar-card" id="sidebar-card">
+        <h2 class="sidebar-card-title">Tag</h2>
+        <div class="tag-picker" role="radiogroup" aria-label="Select a tag">
+
+          <label class="tag-option" data-tag="work">
+            <input type="radio" name="note-tag" value="work" class="tag-radio" />
+            <span class="tag-option-dot to-work" aria-hidden="true"></span>
+            <span class="tag-option-label">Work</span>
+            <span class="tag-option-pill ntag-work" aria-hidden="true">Work</span>
+          </label>
+
+          <label class="tag-option" data-tag="technology">
+            <input type="radio" name="note-tag" value="technology" class="tag-radio" />
+            <span class="tag-option-dot to-technology" aria-hidden="true"></span>
+            <span class="tag-option-label">Technology</span>
+            <span class="tag-option-pill ntag-technology" aria-hidden="true">Technology</span>
+          </label>
+
+          <label class="tag-option" data-tag="personal">
+            <input type="radio" name="note-tag" value="personal" class="tag-radio" />
+            <span class="tag-option-dot to-personal" aria-hidden="true"></span>
+            <span class="tag-option-label">Personal</span>
+            <span class="tag-option-pill ntag-personal" aria-hidden="true">Personal</span>
+          </label>
+
+          <label class="tag-option" data-tag="health">
+            <input type="radio" name="note-tag" value="health" class="tag-radio" />
+            <span class="tag-option-dot to-health" aria-hidden="true"></span>
+            <span class="tag-option-label">Health</span>
+            <span class="tag-option-pill ntag-health" aria-hidden="true">Health</span>
+          </label>
+
+          <label class="tag-option" data-tag="books">
+            <input type="radio" name="note-tag" value="books" class="tag-radio" />
+            <span class="tag-option-dot to-books" aria-hidden="true"></span>
+            <span class="tag-option-label">Books</span>
+            <span class="tag-option-pill ntag-books" aria-hidden="true">Books</span>
+          </label>
+
+          <label class="tag-option" data-tag="travel">
+            <input type="radio" name="note-tag" value="travel" class="tag-radio" />
+            <span class="tag-option-dot to-travel" aria-hidden="true"></span>
+            <span class="tag-option-label">Travel</span>
+            <span class="tag-option-pill ntag-travel" aria-hidden="true">Travel</span>
+          </label>
+
+        </div>
+      </div>
+
+      <!-- Preview -->
+      <div class="sidebar-card">
+        <h2 class="sidebar-card-title">Preview</h2>
+        <div class="note-preview" id="note-preview" aria-live="polite">
+          <div class="preview-accent" id="preview-accent" aria-hidden="true"></div>
+          <div class="preview-inner">
+            <div class="preview-header">
+              <p class="preview-title" id="preview-title">Untitled note</p>
+              <span class="preview-tag" id="preview-tag" aria-hidden="true"></span>
+            </div>
+            <p class="preview-body" id="preview-body">Your note preview will appear here as you write.</p>
+            <div class="preview-footer">
+              <span class="preview-date" id="preview-date"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Options -->
+      <div class="sidebar-card">
+        <h2 class="sidebar-card-title">Options</h2>
+        <div class="options-list">
+          <label class="option-row">
+            <div class="option-info">
+              <span class="option-label">Add to favourites</span>
+              <span class="option-desc">Pin this note to your Favourites tab</span>
+            </div>
+            <button class="toggle" role="switch" aria-checked="false" id="toggle-fav">
+              <span class="toggle-thumb"></span>
+            </button>
+          </label>
+          <label class="option-row">
+            <div class="option-info">
+              <span class="option-label">Save as draft</span>
+              <span class="option-desc">Keep hidden from your main notes list</span>
+            </div>
+            <button class="toggle" role="switch" aria-checked="false" id="toggle-draft">
+              <span class="toggle-thumb"></span>
+            </button>
+          </label>
+        </div>
+      </div>
+
+      <!-- Submit actions -->
+      <div class="submit-actions">
+        <a href="/notes" class="cancel-btn">Discard</a>
+        <button class="save-btn" id="save-note-btn" type="button">
+          <svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          Save note
+        </button>
+      </div>
+
+    </aside>
+  </div>
+  <div id="toast" class="toast">Note saved successfully!</div>
+
+</main>
+
+<script src="/script/api.js"></script>
+<script src="/script/create.js"></script>
+</body>
+</html>
