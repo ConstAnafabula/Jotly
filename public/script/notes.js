@@ -8,6 +8,8 @@ const emptyStateText = document.getElementById('empty-state-text')
 
 async function loadAllNotes() {
     const result = await fetchNotes(getFilters())
+    console.log(result);
+    
     if (!result.success) {
         alert(result.message)
         return
